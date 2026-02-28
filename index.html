@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🇮🇹 Italian Brainrot Soundboard 🧠</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600;700&family=Press+Start+2P&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#009246;--bianco:#fff;--rosso:#ce2b37;--neon-green:#39ff14;--neon-pink:#ff6ec7;--neon-blue:#00f3ff;--neon-yellow:#fff01f;--neon-purple:#bf00ff;--neon-orange:#ff6600;--dark:#08080e;--card:#111119;--card-hover:#1a1a2a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--dark);color:#fff;font-family:'Fredoka',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--verde) 33%,var(--bianco) 33% 66%,var(--rosso) 66%);z-index:9999}
+.ambient{position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(0,146,70,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(206,43,55,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+.scanlines{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);pointer-events:none;z-index:998}
+.container{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:16px}
+header{text-align:center;padding:40px 16px 10px}
+.logo{font-family:'Lilita One',cursive;font-size:clamp(1.8rem,6vw,3.8rem);letter-spacing:2px;line-height:1.15}
+.logo .it{background:linear-gradient(90deg,var(--verde),#50e070,var(--bianco),#ff9999,var(--rosso));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:grad 4s linear infinite}
+.logo .br{background:linear-gradient(135deg,var(--neon-pink),var(--neon-blue),var(--neon-purple));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:grad 3s linear infinite reverse}
+@keyframes grad{to{background-position:200% center}}
+.tagline{font-family:'Press Start 2P',monospace;font-size:clamp(.4rem,1.2vw,.6rem);color:var(--neon-green);text-shadow:0 0 8px var(--neon-green);margin-top:10px;animation:blink 2.5s step-end infinite;letter-spacing:1px}
+@keyframes blink{50%{opacity:.3}}
+.stats{display:flex;justify-content:center;gap:24px;margin:18px 0 10px;flex-wrap:wrap}
+.stat{text-align:center}.stat-num{font-family:'Bangers',cursive;font-size:1.6rem;color:var(--neon-yellow);text-shadow:0 0 10px rgba(255,240,31,.3)}.stat-label{font-size:.6rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px}
+.toolbar{display:flex;justify-content:center;gap:8px;margin:12px 0;flex-wrap:wrap;align-items:center}
+.search-box{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px 16px;color:#fff;font-family:'Fredoka',sans-serif;font-size:.85rem;width:220px;transition:all .3s;outline:none}
+.search-box:focus{border-color:var(--neon-blue);box-shadow:0 0 15px rgba(0,243,255,.15)}
+.search-box::placeholder{color:rgba(255,255,255,.2)}
+.ctrl-btn{background:var(--card);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:7px 14px;font-family:'Fredoka',sans-serif;font-size:.78rem;cursor:pointer;transition:all .3s;white-space:nowrap}
+.ctrl-btn:hover{color:#fff;border-color:rgba(255,255,255,.2);background:var(--card-hover)}
+.ctrl-btn.active{background:linear-gradient(135deg,var(--verde),var(--rosso));color:#fff;border-color:transparent;box-shadow:0 0 12px rgba(0,146,70,.3)}
+.ctrl-btn.stop{background:var(--rosso);color:#fff;border-color:transparent}
+.ctrl-btn.quiz-btn{background:linear-gradient(135deg,var(--neon-purple),var(--neon-pink));color:#fff;border-color:transparent;font-weight:700;font-size:.85rem}
+.ctrl-btn.quiz-btn:hover{box-shadow:0 0 20px rgba(191,0,255,.4);transform:scale(1.05)}
+.ctrl-select{background:var(--card);color:#ccc;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:7px 12px;font-family:'Fredoka',sans-serif;font-size:.78rem;cursor:pointer;transition:all .3s;outline:none}
+.ctrl-select:hover,.ctrl-select:focus{border-color:var(--neon-blue);color:#fff}
+.lang-select{font-size:.82rem;padding:7px 10px}
+.filters{display:flex;justify-content:center;gap:6px;margin:10px 0;flex-wrap:wrap}
+.filter-btn{background:var(--card);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:5px 13px;font-family:'Fredoka',sans-serif;font-size:.72rem;cursor:pointer;transition:all .3s}
+.filter-btn:hover{color:#fff;border-color:rgba(255,255,255,.15)}
+.filter-btn.active{background:linear-gradient(135deg,var(--verde),var(--rosso));color:#fff;border-color:transparent;box-shadow:0 0 10px rgba(0,146,70,.25)}
+.counter{text-align:center;font-size:.6rem;color:rgba(255,255,255,.25);font-family:'Press Start 2P',monospace;margin:8px 0}.counter b{color:var(--neon-yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;padding:16px 0 50px}
+.card{background:var(--card);border:2px solid rgba(255,255,255,.04);border-radius:16px;overflow:hidden;cursor:pointer;position:relative;transition:all .3s cubic-bezier(.175,.885,.32,1.275);user-select:none;-webkit-tap-highlight-color:transparent}
+.card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--glow,var(--neon-pink));box-shadow:0 12px 30px rgba(0,0,0,.5),0 0 20px color-mix(in srgb,var(--glow,var(--neon-pink)) 30%,transparent)}
+.card:active{transform:translateY(-2px) scale(.97)}
+.card.speaking{animation:bounce .6s cubic-bezier(.175,.885,.32,1.275);border-color:var(--neon-yellow)!important;box-shadow:0 0 30px var(--neon-yellow),inset 0 0 20px rgba(255,240,31,.06)!important}
+@keyframes bounce{0%{transform:scale(1)}15%{transform:scale(1.08) rotate(-2deg)}35%{transform:scale(.95) rotate(1deg)}55%{transform:scale(1.04)}75%{transform:scale(.98)}100%{transform:scale(1)}}
+.card.hidden{display:none}
+.card-img{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.02),rgba(255,255,255,.05))}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-img .loader{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.card-img .loader::after{content:'';width:20px;height:20px;border:2px solid rgba(255,255,255,.08);border-top-color:var(--neon-blue);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.card-img .emoji{display:none;font-size:3.5rem;filter:drop-shadow(0 0 10px rgba(255,255,255,.1))}
+.badge{position:absolute;top:5px;left:5px;padding:2px 8px;border-radius:6px;font-family:'Bangers',cursive;font-size:.55rem;letter-spacing:.5px;z-index:2;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.badge-god{background:linear-gradient(135deg,#ffd700,#ff6600);color:#fff;animation:godP 2s ease-in-out infinite}
+@keyframes godP{50%{box-shadow:0 0 12px #ffd700}}
+.badge-secret{background:linear-gradient(135deg,#000,#333);color:#ffd700;border:1px solid #ffd700}
+.badge-mythic{background:linear-gradient(135deg,#bf00ff,#7700ff);color:#fff}
+.badge-legendary{background:linear-gradient(135deg,#ff6600,#ff3300);color:#fff}
+.badge-epic{background:linear-gradient(135deg,#9b59b6,#8e44ad);color:#fff}
+.badge-rare{background:linear-gradient(135deg,#3498db,#2980b9);color:#fff}
+.badge-common{background:rgba(255,255,255,.12);color:rgba(255,255,255,.5)}
+.spk{position:absolute;bottom:5px;right:5px;width:26px;height:26px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;opacity:0;transition:opacity .3s;z-index:2}
+.card:hover .spk{opacity:1}
+.speaking .spk{opacity:1!important;animation:spkP .4s ease-in-out infinite alternate}
+@keyframes spkP{to{transform:scale(1.15);background:rgba(255,240,31,.35)}}
+.card-body{padding:10px 12px 12px}
+.card-name{font-family:'Lilita One',cursive;font-size:.9rem;letter-spacing:.5px;line-height:1.2;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-species{font-size:.6rem;color:rgba(255,255,255,.3);margin-top:2px}
+.wave{display:none;justify-content:center;gap:2px;height:12px;margin-top:5px}
+.speaking .wave{display:flex}
+.wave i{display:block;width:2px;background:var(--neon-yellow);border-radius:1px;animation:bar .35s ease-in-out infinite alternate}
+.wave i:nth-child(1){height:3px;animation-delay:0s}.wave i:nth-child(2){height:8px;animation-delay:.07s}.wave i:nth-child(3){height:12px;animation-delay:.14s}.wave i:nth-child(4){height:8px;animation-delay:.21s}.wave i:nth-child(5){height:3px;animation-delay:.28s}
+@keyframes bar{to{height:12px}}
+.now-playing{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,14,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.06);padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:12px;z-index:997;transform:translateY(100%);transition:transform .3s ease}
+.now-playing.visible{transform:translateY(0)}
+.np-img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+.np-name{font-family:'Lilita One',cursive;font-size:.9rem;color:var(--neon-yellow)}
+.np-wave{display:flex;gap:2px;height:16px;align-items:end}
+.np-wave i{display:block;width:3px;background:var(--neon-green);border-radius:1px;animation:bar .35s ease-in-out infinite alternate}
+.np-wave i:nth-child(1){height:4px;animation-delay:0s}.np-wave i:nth-child(2){height:10px;animation-delay:.07s}.np-wave i:nth-child(3){height:16px;animation-delay:.14s}.np-wave i:nth-child(4){height:10px;animation-delay:.21s}.np-wave i:nth-child(5){height:4px;animation-delay:.28s}
+.fl{position:fixed;font-size:1.2rem;opacity:0;pointer-events:none;z-index:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(105vh) rotate(0);opacity:0}8%{opacity:.04}92%{opacity:.04}100%{transform:translateY(-5vh) rotate(360deg);opacity:0}}
+footer{text-align:center;padding:24px 16px 60px;font-size:.55rem;color:rgba(255,255,255,.15);font-family:'Press Start 2P',monospace;letter-spacing:.5px;line-height:2.2}
+footer a{color:var(--neon-blue);text-decoration:none}
+
+/* ============================================================
+   QUIZ OVERLAY
+   ============================================================ */
+.quiz-overlay{position:fixed;inset:0;background:rgba(8,8,14,.96);backdrop-filter:blur(20px);z-index:1500;display:none;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:20px}
+.quiz-overlay.open{display:flex}
+.quiz-close{position:absolute;top:16px;right:20px;font-size:1.8rem;cursor:pointer;color:rgba(255,255,255,.4);transition:color .2s;z-index:10;background:none;border:none}
+.quiz-close:hover{color:#fff}
+.quiz-header{text-align:center;margin-bottom:20px;width:100%;max-width:700px}
+.quiz-title{font-family:'Lilita One',cursive;font-size:clamp(1.4rem,4vw,2.4rem);margin-bottom:8px}
+.quiz-title .qbr{background:linear-gradient(135deg,var(--neon-purple),var(--neon-pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.quiz-modes{display:flex;gap:10px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.quiz-mode-btn{padding:12px 24px;border-radius:14px;font-family:'Fredoka',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.1);background:var(--card);color:rgba(255,255,255,.5);transition:all .3s}
+.quiz-mode-btn:hover{border-color:rgba(255,255,255,.2);color:#fff}
+.quiz-mode-btn.active{border-color:var(--neon-purple);color:#fff;background:linear-gradient(135deg,rgba(191,0,255,.15),rgba(255,110,199,.15));box-shadow:0 0 20px rgba(191,0,255,.2)}
+.quiz-scores{display:flex;gap:20px;justify-content:center;margin:12px 0;flex-wrap:wrap}
+.quiz-score-box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px 20px;text-align:center;min-width:90px}
+.quiz-score-box .qs-num{font-family:'Bangers',cursive;font-size:1.8rem;line-height:1}
+.quiz-score-box .qs-label{font-size:.55rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.qs-score{color:var(--neon-yellow)}.qs-streak{color:var(--neon-orange)}.qs-best{color:var(--neon-green)}.qs-total{color:var(--neon-blue)}.qs-lives{font-size:1.4rem;letter-spacing:2px}
+@keyframes loseLife{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}.lose-life{animation:loseLife .4s ease}
+
+/* Quiz game area */
+.quiz-game{width:100%;max-width:600px;margin:0 auto}
+.quiz-prompt{text-align:center;margin-bottom:20px}
+.quiz-prompt-text{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.6);margin-bottom:12px}
+.quiz-prompt-img{width:180px;height:180px;border-radius:20px;object-fit:cover;border:3px solid rgba(255,255,255,.1);margin:0 auto;display:block;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.quiz-play-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--neon-purple),var(--neon-pink));color:#fff;border:none;border-radius:14px;padding:14px 32px;font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s;margin:8px 0}
+.quiz-play-btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(191,0,255,.4)}
+.quiz-play-btn:active{transform:scale(.97)}
+.quiz-question-img{display:block;margin:0 auto 10px;border-radius:16px;border:3px solid rgba(255,255,255,.08)}
+
+/* Quiz options */
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.quiz-opt{background:var(--card);border:2px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:90px}
+.quiz-opt:hover{border-color:rgba(255,255,255,.2);background:var(--card-hover);transform:scale(1.02)}
+.quiz-opt.correct{border-color:var(--neon-green)!important;background:rgba(57,255,20,.1)!important;box-shadow:0 0 20px rgba(57,255,20,.2)}
+.quiz-opt.wrong{border-color:var(--rosso)!important;background:rgba(206,43,55,.1)!important;box-shadow:0 0 20px rgba(206,43,55,.2)}
+.quiz-opt.disabled{pointer-events:none;opacity:.5}
+.quiz-opt-img{width:80px;height:80px;border-radius:12px;object-fit:cover;flex-shrink:0;margin:0 auto}
+.quiz-opt-name{font-family:'Lilita One',cursive;font-size:.9rem;color:#fff;line-height:1.2}
+.quiz-opt-play{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:rgba(191,0,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:none;cursor:pointer;transition:all .2s;margin:0 auto}
+.quiz-opt-play:hover{background:rgba(191,0,255,.4);transform:scale(1.1)}
+.quiz-options-names{grid-template-columns:1fr 1fr}
+.quiz-opt-namecard{text-align:center;padding:18px 14px}
+.quiz-opt-label{font-family:'Lilita One',cursive;font-size:1rem;color:#fff;letter-spacing:.5px}
+
+/* Timer bar */
+.quiz-timer{width:100%;height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin:12px 0;overflow:hidden}
+.quiz-timer-fill{height:100%;background:linear-gradient(90deg,var(--neon-green),var(--neon-yellow),var(--rosso));border-radius:3px;transition:width .1s linear}
+
+/* Feedback */
+.quiz-feedback{text-align:center;margin:16px 0;min-height:50px}
+.quiz-fb-text{font-family:'Lilita One',cursive;font-size:1.3rem;animation:fbPop .4s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes fbPop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+.quiz-fb-correct{color:var(--neon-green);text-shadow:0 0 15px rgba(57,255,20,.4)}
+.quiz-fb-wrong{color:var(--rosso);text-shadow:0 0 15px rgba(206,43,55,.4)}
+.quiz-fb-timeout{color:var(--neon-orange);text-shadow:0 0 15px rgba(255,102,0,.4)}
+.quiz-next-btn{background:var(--card);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:10px 28px;font-family:'Fredoka',sans-serif;font-size:.9rem;cursor:pointer;transition:all .2s;margin-top:8px}
+.quiz-next-btn:hover{background:var(--card-hover);border-color:rgba(255,255,255,.2)}
+
+/* Start screen */
+.quiz-start{text-align:center;padding:30px 20px}
+.quiz-start-desc{color:rgba(255,255,255,.5);font-size:.95rem;margin:10px 0 20px;line-height:1.5}
+.quiz-start-btn{display:inline-block;background:linear-gradient(135deg,var(--verde),var(--neon-green));color:#000;border:none;border-radius:14px;padding:16px 40px;font-family:'Lilita One',cursive;font-size:1.3rem;cursor:pointer;transition:all .3s;letter-spacing:1px}
+.quiz-start-btn:hover{transform:scale(1.06);box-shadow:0 0 30px rgba(57,255,20,.3)}
+
+/* Game Over */
+.quiz-gameover{text-align:center;padding:20px}
+.quiz-go-title{font-family:'Lilita One',cursive;font-size:2rem;color:var(--rosso);margin-bottom:6px}
+.quiz-go-score{font-family:'Bangers',cursive;font-size:3rem;color:var(--neon-yellow);text-shadow:0 0 20px rgba(255,240,31,.3)}
+.quiz-go-label{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px}
+.quiz-go-new{color:var(--neon-green);font-family:'Press Start 2P',monospace;font-size:.6rem;margin:6px 0;animation:blink 1s step-end infinite}
+.quiz-go-stats{display:flex;gap:16px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.quiz-go-stat{background:var(--card);border-radius:10px;padding:10px 18px;text-align:center}
+.quiz-go-stat .gos-num{font-family:'Bangers',cursive;font-size:1.5rem;color:var(--neon-blue)}
+.quiz-go-stat .gos-label{font-size:.55rem;color:rgba(255,255,255,.3);text-transform:uppercase}
+
+@media(max-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:8px}.card-body{padding:7px 8px 10px}.card-name{font-size:.75rem}.search-box{width:140px}header{padding:30px 10px 8px}.quiz-options{grid-template-columns:1fr 1fr;gap:8px}.quiz-opt{min-height:70px;padding:10px}.quiz-opt-img{width:60px;height:60px}.quiz-opt-label{font-size:.85rem}.quiz-prompt-img{width:140px;height:140px}}
+@media(max-width:400px){.grid{grid-template-columns:repeat(2,1fr);gap:6px}.card-name{font-size:.7rem}.stats{gap:14px}}
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="scanlines"></div>
+<div class="container">
+<header>
+    <div class="logo"><span class="it">Italian</span> <span class="br">Brainrot</span></div>
+    <div class="logo" style="font-size:clamp(.9rem,3vw,1.6rem);margin-top:-4px"><span class="br">Soundboard</span></div>
+    <p class="tagline" data-i18n="tagline">▶ CLIQUEZ POUR ÉCOUTER ◀</p>
+    <div class="stats">
+        <div class="stat"><div class="stat-num" id="totalCount">0</div><div class="stat-label" data-i18n="characters">Personnages</div></div>
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label" data-i18n="rarities">Raretés</div></div>
+        <div class="stat"><div class="stat-num">FREE</div><div class="stat-label" data-i18n="free">100% Gratuit</div></div>
+    </div>
+    <div class="toolbar">
+        <input class="search-box" id="search" type="text" data-i18n-placeholder="searchPlaceholder" placeholder="🔍 Rechercher...">
+        <button class="ctrl-btn stop" onclick="stopAll()">⏹ Stop</button>
+        <button class="ctrl-btn" id="loopBtn" onclick="toggleLoop()">🔁 Loop</button>
+        <button class="ctrl-btn" onclick="playRandom()">🎲 Random</button>
+        <button class="ctrl-btn quiz-btn" onclick="openQuiz()">🧠 Quiz</button>
+        <select class="ctrl-select" id="speedSel">
+            <option value="0.5" data-i18n="slow">🐢 Lent</option>
+            <option value="0.8" selected data-i18n="normal">🎯 Normal</option>
+            <option value="1.2" data-i18n="fast">⚡ Rapide</option>
+            <option value="1.8">🚀 TURBO</option>
+        </select>
+        <select class="ctrl-select lang-select" id="langSel" onchange="setLang(this.value)">
+            <option value="fr">🇫🇷 FR</option><option value="en">🇬🇧 EN</option><option value="es">🇪🇸 ES</option>
+            <option value="de">🇩🇪 DE</option><option value="pt">🇧🇷 PT</option><option value="it">🇮🇹 IT</option>
+            <option value="nl">🇳🇱 NL</option><option value="ru">🇷🇺 RU</option><option value="ja">🇯🇵 JA</option><option value="ar">🇸🇦 AR</option>
+        </select>
+    </div>
+    <div class="filters" id="filters"></div>
+    <p class="counter"><span data-i18n="shown">Affichés</span> : <b id="shownCount">0</b> / <b id="total2">0</b></p>
+</header>
+<div class="grid" id="grid"></div>
+<footer>
+    <p>🇮🇹 ITALIAN BRAINROT SOUNDBOARD 🧠</p>
+    <p><span data-i18n="credits">Images & sons</span> : <a href="https://www.playbrainrot.org" target="_blank">PlayBrainrot.org</a></p>
+</footer>
+</div>
+
+<div class="now-playing" id="nowPlaying">
+    <img class="np-img" id="npImg" src="" alt=""><span class="np-name" id="npName"></span>
+    <div class="np-wave"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<!-- ============================================================
+     QUIZ OVERLAY
+     ============================================================ -->
+<div class="quiz-overlay" id="quizOverlay">
+    <button class="quiz-close" onclick="closeQuiz()">&times;</button>
+    <div class="quiz-header">
+        <div class="quiz-title"><span class="qbr">🧠 Brainrot Quiz</span></div>
+        <div class="quiz-modes">
+            <button class="quiz-mode-btn active" data-qmode="sound" onclick="setQuizMode('sound')">
+                🔊 <span data-i18n="quizSound">Son → Image</span>
+            </button>
+            <button class="quiz-mode-btn" data-qmode="image" onclick="setQuizMode('image')">
+                🖼️ <span data-i18n="quizImage">Image → Nom</span>
+            </button>
+        </div>
+        <div class="quiz-scores">
+            <div class="quiz-score-box"><div class="qs-num qs-score" id="qScore">0</div><div class="qs-label">Score</div></div>
+            <div class="quiz-score-box"><div class="qs-num qs-streak" id="qStreak">0</div><div class="qs-label">Streak 🔥</div></div>
+            <div class="quiz-score-box"><div class="qs-num qs-best" id="qBest">0</div><div class="qs-label" data-i18n="hiscore">Hi-Score</div></div>
+            <div class="quiz-score-box"><div class="qs-num qs-lives" id="qLives">❤️❤️❤️</div><div class="qs-label" data-i18n="quizLives">Vies</div></div>
+            <div class="quiz-score-box"><div class="qs-num qs-total" id="qRound">0</div><div class="qs-label" data-i18n="quizRound">Manche</div></div>
+        </div>
+    </div>
+    <div class="quiz-game" id="quizGame"></div>
+</div>
+
+<script>
+// ============================================================
+//  🌍 i18n
+// ============================================================
+const T={
+fr:{tagline:"▶ CLIQUEZ POUR ÉCOUTER ◀",characters:"Personnages",rarities:"Raretés",free:"100% Gratuit",searchPlaceholder:"🔍 Rechercher...",slow:"🐢 Lent",normal:"🎯 Normal",fast:"⚡ Rapide",shown:"Affichés",credits:"Images & sons",all:"Tous 🤌",aquatic:"Aquatiques 🐟",bird:"Oiseaux 🐦",mammal:"Mammifères 🐾",primate:"Primates 🐵",reptile:"Reptiles 🐊",object:"Objets 🗿",hybrid:"Hybrides 🧬",quizSound:"Son → Image",quizImage:"Image → Nom",hiscore:"Hi-Score",round:"Manche",quizStartTitle:"Prêt à jouer ?",quizSoundDesc:"Écoute le son et trouve le bon personnage !",quizImageDesc:"Regarde l'image et trouve le bon nom !",quizStart:"🚀 C'est parti !",quizNext:"Suivant →",quizListen:"🔊 Écouter le son",quizWho:"Qui est-ce ?",quizWhichSound:"Quel est son son ?",quizWhichName:"Quel est son nom ?",quizCorrect:"✅ Correct !",quizWrong:"❌ Raté !",quizTimeout:"⏰ Temps écoulé !",quizOver:"Game Over",quizFinalScore:"Score final",quizNewRecord:"🎉 NOUVEAU RECORD !",quizCorrectWas:"C'était :",quizReplay:"🔄 Rejouer",quizAccuracy:"Précision",quizBestStreak:"Meilleur streak",quizPlaySound:"▶ Écouter",quizRounds:"Manches",quizRound:"Manche",quizLives:"Vies"},
+en:{tagline:"▶ CLICK TO LISTEN ◀",characters:"Characters",rarities:"Rarities",free:"100% Free",searchPlaceholder:"🔍 Search...",slow:"🐢 Slow",normal:"🎯 Normal",fast:"⚡ Fast",shown:"Shown",credits:"Images & sounds",all:"All 🤌",aquatic:"Aquatic 🐟",bird:"Birds 🐦",mammal:"Mammals 🐾",primate:"Primates 🐵",reptile:"Reptiles 🐊",object:"Objects 🗿",hybrid:"Hybrids 🧬",quizSound:"Sound → Image",quizImage:"Image → Name",hiscore:"Hi-Score",round:"Round",quizStartTitle:"Ready to play?",quizSoundDesc:"Listen to the sound and find the right character!",quizImageDesc:"Look at the image and find the right name!",quizStart:"🚀 Let's go!",quizNext:"Next →",quizListen:"🔊 Play sound",quizWho:"Who is it?",quizWhichSound:"What's their sound?",quizWhichName:"What's their name?",quizCorrect:"✅ Correct!",quizWrong:"❌ Wrong!",quizTimeout:"⏰ Time's up!",quizOver:"Game Over",quizFinalScore:"Final score",quizNewRecord:"🎉 NEW RECORD!",quizCorrectWas:"It was:",quizReplay:"🔄 Play again",quizAccuracy:"Accuracy",quizBestStreak:"Best streak",quizPlaySound:"▶ Listen",quizRounds:"Rounds",quizRound:"Round",quizLives:"Lives"},
+es:{tagline:"▶ HAZ CLIC PARA ESCUCHAR ◀",characters:"Personajes",rarities:"Rarezas",free:"100% Gratis",searchPlaceholder:"🔍 Buscar...",slow:"🐢 Lento",normal:"🎯 Normal",fast:"⚡ Rápido",shown:"Mostrados",credits:"Imágenes y sonidos",all:"Todos 🤌",aquatic:"Acuáticos 🐟",bird:"Aves 🐦",mammal:"Mamíferos 🐾",primate:"Primates 🐵",reptile:"Reptiles 🐊",object:"Objetos 🗿",hybrid:"Híbridos 🧬",quizSound:"Sonido → Imagen",quizImage:"Imagen → Nombre",hiscore:"Hi-Score",round:"Ronda",quizStartTitle:"¿Listo?",quizSoundDesc:"¡Escucha el sonido y encuentra el personaje!",quizImageDesc:"¡Mira la imagen y encuentra el nombre!",quizStart:"🚀 ¡Vamos!",quizNext:"Siguiente →",quizListen:"🔊 Escuchar",quizWho:"¿Quién es?",quizWhichSound:"¿Cuál es su sonido?",quizWhichName:"¿Cómo se llama?",quizCorrect:"✅ ¡Correcto!",quizWrong:"❌ ¡Fallaste!",quizTimeout:"⏰ ¡Tiempo!",quizOver:"Fin del juego",quizFinalScore:"Puntuación final",quizNewRecord:"🎉 ¡NUEVO RÉCORD!",quizCorrectWas:"Era:",quizReplay:"🔄 Repetir",quizAccuracy:"Precisión",quizBestStreak:"Mejor racha",quizPlaySound:"▶ Escuchar",quizRounds:"Rondas",quizRound:"Ronda",quizLives:"Vidas"},
+de:{tagline:"▶ KLICKEN ZUM ANHÖREN ◀",characters:"Charaktere",rarities:"Seltenheiten",free:"100% Kostenlos",searchPlaceholder:"🔍 Suchen...",slow:"🐢 Langsam",normal:"🎯 Normal",fast:"⚡ Schnell",shown:"Angezeigt",credits:"Bilder & Töne",all:"Alle 🤌",aquatic:"Aquatisch 🐟",bird:"Vögel 🐦",mammal:"Säugetiere 🐾",primate:"Primaten 🐵",reptile:"Reptilien 🐊",object:"Objekte 🗿",hybrid:"Hybride 🧬",quizSound:"Ton → Bild",quizImage:"Bild → Name",hiscore:"Hi-Score",round:"Runde",quizStartTitle:"Bereit?",quizSoundDesc:"Höre den Ton und finde den richtigen Charakter!",quizImageDesc:"Sieh das Bild und finde den richtigen Namen!",quizStart:"🚀 Los geht's!",quizNext:"Weiter →",quizListen:"🔊 Anhören",quizWho:"Wer ist es?",quizWhichSound:"Welcher Ton?",quizWhichName:"Wie heißt er?",quizCorrect:"✅ Richtig!",quizWrong:"❌ Falsch!",quizTimeout:"⏰ Zeit abgelaufen!",quizOver:"Spiel vorbei",quizFinalScore:"Endpunktzahl",quizNewRecord:"🎉 NEUER REKORD!",quizCorrectWas:"Es war:",quizReplay:"🔄 Nochmal",quizAccuracy:"Genauigkeit",quizBestStreak:"Beste Serie",quizPlaySound:"▶ Anhören",quizRounds:"Runden",quizRound:"Runde",quizLives:"Leben"},
+pt:{tagline:"▶ CLIQUE PARA OUVIR ◀",characters:"Personagens",rarities:"Raridades",free:"100% Grátis",searchPlaceholder:"🔍 Buscar...",slow:"🐢 Lento",normal:"🎯 Normal",fast:"⚡ Rápido",shown:"Exibidos",credits:"Imagens e sons",all:"Todos 🤌",aquatic:"Aquáticos 🐟",bird:"Aves 🐦",mammal:"Mamíferos 🐾",primate:"Primatas 🐵",reptile:"Répteis 🐊",object:"Objetos 🗿",hybrid:"Híbridos 🧬",quizSound:"Som → Imagem",quizImage:"Imagem → Nome",hiscore:"Hi-Score",round:"Rodada",quizStartTitle:"Pronto?",quizSoundDesc:"Ouça o som e encontre o personagem!",quizImageDesc:"Veja a imagem e encontre o nome!",quizStart:"🚀 Vamos!",quizNext:"Próximo →",quizListen:"🔊 Ouvir",quizWho:"Quem é?",quizWhichSound:"Qual o som?",quizWhichName:"Qual é o nome?",quizCorrect:"✅ Correto!",quizWrong:"❌ Errado!",quizTimeout:"⏰ Tempo esgotado!",quizOver:"Fim de jogo",quizFinalScore:"Pontuação final",quizNewRecord:"🎉 NOVO RECORDE!",quizCorrectWas:"Era:",quizReplay:"🔄 Jogar novamente",quizAccuracy:"Precisão",quizBestStreak:"Melhor sequência",quizPlaySound:"▶ Ouvir",quizRounds:"Rodadas",quizRound:"Rodada",quizLives:"Vidas"},
+it:{tagline:"▶ CLICCA PER ASCOLTARE ◀",characters:"Personaggi",rarities:"Rarità",free:"100% Gratuito",searchPlaceholder:"🔍 Cerca...",slow:"🐢 Lento",normal:"🎯 Normale",fast:"⚡ Veloce",shown:"Mostrati",credits:"Immagini e suoni",all:"Tutti 🤌",aquatic:"Acquatici 🐟",bird:"Uccelli 🐦",mammal:"Mammiferi 🐾",primate:"Primati 🐵",reptile:"Rettili 🐊",object:"Oggetti 🗿",hybrid:"Ibridi 🧬",quizSound:"Suono → Immagine",quizImage:"Immagine → Nome",hiscore:"Hi-Score",round:"Round",quizStartTitle:"Pronto?",quizSoundDesc:"Ascolta il suono e trova il personaggio giusto!",quizImageDesc:"Guarda l'immagine e trova il nome giusto!",quizStart:"🚀 Via!",quizNext:"Avanti →",quizListen:"🔊 Ascolta",quizWho:"Chi è?",quizWhichSound:"Qual è il suo suono?",quizWhichName:"Come si chiama?",quizCorrect:"✅ Corretto!",quizWrong:"❌ Sbagliato!",quizTimeout:"⏰ Tempo scaduto!",quizOver:"Fine del gioco",quizFinalScore:"Punteggio finale",quizNewRecord:"🎉 NUOVO RECORD!",quizCorrectWas:"Era:",quizReplay:"🔄 Rigioca",quizAccuracy:"Precisione",quizBestStreak:"Miglior serie",quizPlaySound:"▶ Ascolta",quizRounds:"Round",quizRound:"Round",quizLives:"Vite"},
+nl:{tagline:"▶ KLIK OM TE LUISTEREN ◀",characters:"Personages",rarities:"Zeldzaamheden",free:"100% Gratis",searchPlaceholder:"🔍 Zoeken...",slow:"🐢 Langzaam",normal:"🎯 Normaal",fast:"⚡ Snel",shown:"Getoond",credits:"Afbeeldingen & geluiden",all:"Alle 🤌",aquatic:"Aquatisch 🐟",bird:"Vogels 🐦",mammal:"Zoogdieren 🐾",primate:"Primaten 🐵",reptile:"Reptielen 🐊",object:"Objecten 🗿",hybrid:"Hybride 🧬",quizSound:"Geluid → Beeld",quizImage:"Beeld → Naam",hiscore:"Hi-Score",round:"Ronde",quizStartTitle:"Klaar?",quizSoundDesc:"Luister naar het geluid en vind het juiste personage!",quizImageDesc:"Kijk naar het beeld en vind de juiste naam!",quizStart:"🚀 Start!",quizNext:"Volgende →",quizListen:"🔊 Luisteren",quizWho:"Wie is het?",quizWhichSound:"Welk geluid?",quizWhichName:"Wie is het?",quizCorrect:"✅ Correct!",quizWrong:"❌ Fout!",quizTimeout:"⏰ Tijd om!",quizOver:"Game Over",quizFinalScore:"Eindscore",quizNewRecord:"🎉 NIEUW RECORD!",quizCorrectWas:"Het was:",quizReplay:"🔄 Opnieuw",quizAccuracy:"Nauwkeurigheid",quizBestStreak:"Beste reeks",quizPlaySound:"▶ Luisteren",quizRounds:"Rondes",quizRound:"Ronde",quizLives:"Levens"},
+ru:{tagline:"▶ НАЖМИ, ЧТОБЫ СЛУШАТЬ ◀",characters:"Персонажи",rarities:"Редкости",free:"100% Бесплатно",searchPlaceholder:"🔍 Поиск...",slow:"🐢 Медленно",normal:"🎯 Нормально",fast:"⚡ Быстро",shown:"Показано",credits:"Изображения и звуки",all:"Все 🤌",aquatic:"Водные 🐟",bird:"Птицы 🐦",mammal:"Млекопитающие 🐾",primate:"Приматы 🐵",reptile:"Рептилии 🐊",object:"Объекты 🗿",hybrid:"Гибриды 🧬",quizSound:"Звук → Картинка",quizImage:"Картинка → Имя",hiscore:"Рекорд",round:"Раунд",quizStartTitle:"Готов?",quizSoundDesc:"Послушай звук и найди правильного персонажа!",quizImageDesc:"Посмотри на картинку и найди правильное имя!",quizStart:"🚀 Поехали!",quizNext:"Далее →",quizListen:"🔊 Слушать",quizWho:"Кто это?",quizWhichSound:"Какой звук?",quizWhichName:"Как зовут?",quizCorrect:"✅ Верно!",quizWrong:"❌ Неверно!",quizTimeout:"⏰ Время вышло!",quizOver:"Конец игры",quizFinalScore:"Итоговый счёт",quizNewRecord:"🎉 НОВЫЙ РЕКОРД!",quizCorrectWas:"Это был:",quizReplay:"🔄 Ещё раз",quizAccuracy:"Точность",quizBestStreak:"Лучшая серия",quizPlaySound:"▶ Слушать",quizRounds:"Раунды",quizRound:"Раунд",quizLives:"Жизни"},
+ja:{tagline:"▶ クリックして聴く ◀",characters:"キャラ",rarities:"レアリティ",free:"100% 無料",searchPlaceholder:"🔍 検索...",slow:"🐢 遅い",normal:"🎯 普通",fast:"⚡ 速い",shown:"表示中",credits:"画像と音声",all:"全て 🤌",aquatic:"水生 🐟",bird:"鳥類 🐦",mammal:"哺乳類 🐾",primate:"霊長類 🐵",reptile:"爬虫類 🐊",object:"オブジェクト 🗿",hybrid:"ハイブリッド 🧬",quizSound:"音 → 画像",quizImage:"画像 → 名前",hiscore:"ハイスコア",round:"ラウンド",quizStartTitle:"準備OK？",quizSoundDesc:"音を聞いて正しいキャラを見つけよう！",quizImageDesc:"画像を見て正しい名前を見つけよう！",quizStart:"🚀 スタート！",quizNext:"次へ →",quizListen:"🔊 再生",quizWho:"誰？",quizWhichSound:"どの音？",quizWhichName:"名前は？",quizCorrect:"✅ 正解！",quizWrong:"❌ 不正解！",quizTimeout:"⏰ 時間切れ！",quizOver:"ゲームオーバー",quizFinalScore:"最終スコア",quizNewRecord:"🎉 新記録！",quizCorrectWas:"正解は：",quizReplay:"🔄 もう一度",quizAccuracy:"正確率",quizBestStreak:"最高連続",quizPlaySound:"▶ 再生",quizRounds:"ラウンド数",quizRound:"ラウンド",quizLives:"ライフ"},
+ar:{tagline:"▶ انقر للاستماع ◀",characters:"شخصيات",rarities:"ندرات",free:"مجاني 100%",searchPlaceholder:"🔍 بحث...",slow:"🐢 بطيء",normal:"🎯 عادي",fast:"⚡ سريع",shown:"معروض",credits:"صور وأصوات",all:"الكل 🤌",aquatic:"مائي 🐟",bird:"طيور 🐦",mammal:"ثدييات 🐾",primate:"رئيسيات 🐵",reptile:"زواحف 🐊",object:"أجسام 🗿",hybrid:"هجين 🧬",quizSound:"صوت → صورة",quizImage:"صورة → اسم",hiscore:"أعلى نتيجة",round:"جولة",quizStartTitle:"مستعد؟",quizSoundDesc:"!استمع للصوت وابحث عن الشخصية الصحيحة",quizImageDesc:"!انظر إلى الصورة وابحث عن الاسم الصحيح",quizStart:"🚀 !يلا",quizNext:"→ التالي",quizListen:"🔊 استمع",quizWho:"من هذا؟",quizWhichSound:"أي صوت؟",quizWhichName:"ما الاسم؟",quizCorrect:"✅ !صحيح",quizWrong:"❌ !خطأ",quizTimeout:"⏰ !انتهى الوقت",quizOver:"انتهت اللعبة",quizFinalScore:"النتيجة النهائية",quizNewRecord:"🎉 !رقم قياسي جديد",quizCorrectWas:":كان",quizReplay:"🔄 أعد اللعب",quizAccuracy:"الدقة",quizBestStreak:"أفضل سلسلة",quizPlaySound:"▶ استمع",quizRounds:"جولات",quizRound:"جولة",quizLives:"أرواح"},
+};
+let currentLang="fr";
+function detectLang(){const n=(navigator.language||"fr").slice(0,2).toLowerCase();return T[n]?n:"fr"}
+function t(k){return(T[currentLang]&&T[currentLang][k])||T.fr[k]||k}
+function applyI18n(){
+    document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n)});
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{el.placeholder=t(el.dataset.i18nPlaceholder)});
+    for(const o of document.getElementById("speedSel").options) if(o.dataset.i18n) o.textContent=t(o.dataset.i18n);
+    buildFilters();
+    document.querySelectorAll(".card").forEach(c=>{const s=c.dataset.species;const l=c.querySelector(".card-species");if(l) l.textContent=(SE[s]||"")+" "+t(s)});
+}
+function setLang(l){currentLang=l;document.getElementById("langSel").value=l;document.documentElement.lang=l;try{localStorage.setItem("brainrot-lang",l)}catch(e){}applyI18n()}
+
+// ============================================================
+//  DATA
+// ============================================================
+const BASE="https://www.playbrainrot.org",IMG=BASE+"/images/characters/";
+const SOUND_PATTERNS=[BASE+"/sounds/{slug}.mp3",BASE+"/audio/{slug}.mp3",BASE+"/sounds/characters/{slug}.mp3"];
+const CUSTOM_AUDIO={"bombardiro-crocodilo":"https://static.miraheze.org/italianbrainrotwiki/f/f2/Bombardirocrocodilo.mp3"};
+const RO={god:0,secret:1,mythic:2,legendary:3,epic:4,rare:5,common:6};
+const RL={god:"🔱 GOD",secret:"🔮 SECRET",mythic:"💎 MYTHIC",legendary:"🔥 LEGENDARY",epic:"⚡ EPIC",rare:"💧 RARE",common:"⚪ COMMON"};
+const RG={god:"#ffd700",secret:"#ffd700",mythic:"#bf00ff",legendary:"#ff6600",epic:"#9b59b6",rare:"#3498db",common:"#666"};
+const SE={aquatic:"🐟",reptile:"🐊",bird:"🐦",mammal:"🐾",primate:"🐵",object:"🗿",hybrid:"🧬"};
+
+// [name, imgSlug, charSlug, rarity, species]
+const D=[
+["Tralalero Tralala","tralalero-tralala","tralalero-tralala","god","aquatic"],
+["Bombardiro Crocodilo","bombardiro-crocodilo","bombardiro-crocodilo","mythic","reptile"],
+["Tung Tung Tung Tung Tung Tung Tung Tung Tung Sahur","tung-tung-tung-tung-tung-tung-tung-tung-tung-sahur","tung-tung-tung-sahur","mythic","object"],
+["Boneca Ambalabu","boneca-ambalabu","boneca-ambalabu","rare","aquatic"],
+["Brr Brr Patapim","brr-brr-patapim","brr-brr-patapim","epic","primate"],
+["Chimpanzini Bananini","chimpanzini-bananini","chimpanzini-bananini","legendary","primate"],
+["Bombombini Gusini","bombombini-gusini","bombombini-gusini","mythic","bird"],
+["Cappuccino Assassino","cappuccino-assassino","cappuccino-assassino","epic","object"],
+["Trippi Troppi","trippi-troppi","trippi-troppi","rare","mammal"],
+["Frigo Camelo","frigo-camelo","frigo-camelo","mythic","mammal"],
+["La Vaca Saturno Saturnita","la-vaca-saturno-saturnita","la-vaca-saturno-saturnita","mythic","hybrid"],
+["Ballerina Cappuccina","ballerina-cappuccina","ballerina-cappuccina","legendary","object"],
+["U Din Din Din Din Dun Ma Din Din Din Dun","u-din-din-din-din-dun-ma-din-din-din-dun","u-din-din-din-dun","god","object"],
+["Trulimero Trulicina","trulimero-trulicina","trulimero-trulicina","epic","hybrid"],
+["Girafa Celeste","girafa-celeste","girafa-celeste","epic","mammal"],
+["Bobrito Bandito","bobrito-bandito","bobrito-bandito","rare","mammal"],
+["Ta Ta Ta Ta Ta Ta Ta Ta Ta Ta Ta Sahur","ta-ta-ta-ta-ta-ta-ta-ta-ta-ta-ta-sahur","ta-ta-ta-sahur","rare","object"],
+["Pot Hotspot","pot-hotspot","pot-hotspot","secret","object"],
+["Frulli Frulla","frulli-frulla","frulli-frulla","common","bird"],
+["Brri Brri Bicus Dicus Bombicus","brri-brri-bicus-dicus-bombicus","brri-brri-bicus-dicus","epic","bird"],
+["Tric Trac Baraboom","tric-trac-baraboom","tric-trac-baraboom","rare","primate"],
+["Burbaloni Lulilolli","burbaloni-lulilolli","burbaloni-lulilolli","legendary","mammal"],
+["Orangutini Ananasini","orangutini-ananasini","orangutini-ananasini","mythic","primate"],
+["Garamararamararaman dan Madudungdung tak tuntung perkuntung","garamararamararaman-dan-madudungdung-tak-tuntung-p","garamararamararaman-dan-madudungdung","mythic","object"],
+["Il Cacto Hipopotamo","il-cacto-hipopotamo","il-cacto-hipopotamo","rare","mammal"],
+["Blueberrinni Octopussini","blueberrinni-octopussini","blueberrinni-octopussini","legendary","aquatic"],
+["Glorbo Fruttodrillo","glorbo-fruttodrillo","glorbo-fruttodrillo","legendary","reptile"],
+["Rhino Toasterino","rhino-toasterino","rhino-toasterino","mythic","mammal"],
+["Zibra Zubra Zibralini","zibra-zubra-zibralini","zibra-zubra-zibralini","mythic","mammal"],
+["Graipussi Medussi","graipussi-medussi","graipussi-medussi","mythic","aquatic"],
+["Tigrrullini Watermellini","tigrrullini-watermellini","tigrrullini-watermellini","mythic","mammal"],
+["Tracotucotulu Delapeladustuz","tracotucotulu-delapeladustuz","tracotucotulu-delapeladustuz","mythic","mammal"],
+["Gorillo Watermellondrillo","gorillo-watermellondrillo","gorillo-watermellondrillo","mythic","primate"],
+["Bananita Dolfinita","bananita-dolfinita","bananita-dolfinita","epic","aquatic"],
+["Cocofanto Elefanto","cocofanto-elefanto","cocofanto-elefanto","god","mammal"],
+["Tigrulli Grapefrutunni","tigrulli-grapefrutunni","tigrulli-grapefrutunni","god","mammal"],
+["Ballerino Lololo","ballerino-lololo","ballerino-lololo","god","object"],
+["Crocodildo Penisini","crocodildo-penisini","crocodildo-penisini","mythic","reptile"],
+["Makakini Bananini","makakini-bananini","makakini-bananini","common","primate"],
+["Matteooooooooooooo","matteooooooooooooo","matteo","god","hybrid"],
+["Elephantuchi Bananuchi","elephantuchi-bananuchi","elephantuchi-bananuchi","common","hybrid"],
+["Crocodillo Ananasinno","crocodillo-ananasinno","crocodillo-ananasinno","common","reptile"],
+["Penguino Cocosino","penguino-cocosino","penguino-cocosino","epic","bird"],
+["Bobrelli Bananelli","bobrelli-bananelli","bobrelli-bananelli","common","mammal"],
+["Bulliccinni Bananini","bulliccinni-bananini","bulliccinni-bananini","common","mammal"],
+["Pandaccini Bananini","pandaccini-bananini","pandaccini-bananini","legendary","mammal"],
+["Torrtuginni Dragonfrutinni","torrtuginni-dragonfrutinni","torrtuginni-dragonfrutinni","mythic","aquatic"],
+["Gorillini Bananini","gorillini-bananini","gorillini-bananini","legendary","primate"],
+["Ecco Cavallo Virtuoso","ecco-cavallo-virtuoso","ecco-cavallo-virtuoso","mythic","mammal"],
+["Flamingulli-gulli-gulli","flamingulligulligulli","flamingulli-gulli-gulli","common","bird"],
+["Capybarelli Bananalelli","capybarelli-bananalelli","capybarelli-bananalelli","common","hybrid"],
+["Tob Tobi Tob Tob Tobi Tob","tob-tobi-tob-tob-tobi-tob","tob-tobi-tob","mythic","mammal"],
+["Sigma Boy","sigma-boy","sigma-boy","legendary","bird"],
+["La Esok Sekolah","la-esok-sekolah","la-esok-sekolah","mythic","hybrid"],
+["Chai Maestro","chai-maestro","chai-maestro","mythic","object"],
+["Orcalero Orcala","orcalero-orcala","orcalero-orcala","god","aquatic"],
+["Nuclearo Dinossauro","nuclearo-dinossauro","nuclearo-dinossauro","secret","reptile"],
+["Anpali Babbel","anpali-babbel","anpali-babbel","god","object"],
+["Brr Es Teh Patipum","brr-es-teh-patipum","brr-es-teh-patipum","god","object"],
+["Brr Brr Gangster Gusini","brr-brr-gangster-gusini","brr-brr-gangster-gusini","common","bird"],
+["Trilalero Tramalima","trilalero-tramalima","trilalero-tramalima","common","object"],
+["Pi Pi Kiwi","pi-pi-kiwi","pi-pi-kiwi","common","mammal"],
+["Leonelli Cactuselli","leonelli-cactuselli","leonelli-cactuselli","legendary","mammal"],
+["Triki Trakatelas","triki-trakatelas","triki-trakatelas","epic","hybrid"],
+["Kudanile Astronote","kudanile-astronote","kudanile-astronote","common","mammal"],
+["Tung Tung Tung Tung Tung Tung Tung Tung Tung Assassino Boneca","tung-tung-tung-tung-tung-tung-tung-tung-tung-assas","tung-tung-assassino-boneca","common","hybrid"],
+["La vaca Trippa troppa Bombini Gusini Tralala Lirilira Tung Tung Sahur boneka Tung Tung tralalelo cappuccino assasine Trippi troppa Crocodina fruli frulia","la-vaca-trippa-troppa-bombini-gusini-tralala-liril","la-vaca-mega-mashup","common","hybrid"],
+["Svinino Bombondino","svinino-bombondino","svinino-bombondino","common","hybrid"],
+["Bulbito Bandito Traktorito","bulbito-bandito-traktorito","bulbito-bandito-traktorito","god","object"],
+["Raccooni Watermelunni","raccooni-watermelunni","raccooni-watermelunni","common","mammal"],
+["Ganganzelli Trulala","ganganzelli-trulala","ganganzelli-trulala","mythic","mammal"],
+["Espressona Signora","espressona-signora","espressona-signora","god","object"],
+["Spaghetti Tualetti","spaghetti-tualetti","spaghetti-tualetti","secret","hybrid"],
+["Cocossini Mama","cocossini-mama","cocossini-mama","legendary","hybrid"],
+["Snooffi Zeffirulli","snooffi-zeffirulli","snooffi-zeffirulli","common","mammal"],
+["Lirilì Larilà","liril-laril","lirili-larila","common","hybrid"],
+["Špijuniro Golubiro","pijuniro-golubiro","spijuniro-golubiro","common","hybrid"],
+["Trippa Troppa Tralala Lirilì Rilà Tung Tung Sahur Boneca Tung Tung Tralalelo Trippi Troppa Crocodina","trippa-troppa-tralala-liril-ril-tung-tung-sahur-bo","trippa-troppa-combined","common","hybrid"],
+["Perochello Lemonchello","perochello-lemonchello","perochello-lemonchello","common","hybrid"],
+["Tukanno Bananno","tukanno-bananno","tukanno-bananno","common","hybrid"],
+["Ananitto Giraffini","ananitto-giraffini","ananitto-giraffini","common","hybrid"],
+["Cocosino Rhino","cocosino-rhino","cocosino-rhino","common","hybrid"],
+["Tralaleritos","tralaleritos","tralaleritos","common","hybrid"],
+["Cacasito Satelito","cacasito-satelito","cacasito-satelito","common","hybrid"],
+["Armodillo Cocodillo","armodillo-cocodillo","armodillo-cocodillo","common","hybrid"],
+["Peachi Foxilini","peachi-foxilini","peachi-foxilini","common","hybrid"],
+["Ananasita Owlita","ananasita-owlita","ananasita-owlita","common","hybrid"],
+["Blueberrini Tatticini","blueberrini-tatticini","blueberrini-tatticini","common","hybrid"],
+["Quivioli Ameleonni","quivioli-ameleonni","quivioli-ameleonni","common","hybrid"],
+["Mangolini Parrocini","mangolini-parrocini","mangolini-parrocini","common","hybrid"],
+["Crabito Cocosito","crabito-cocosito","crabito-cocosito","common","hybrid"],
+["Bombombona Pecorona","bombombona-pecorona","bombombona-pecorona","common","hybrid"],
+["Suricatelli Bananelli","suricatelli-bananelli","suricatelli-bananelli","common","hybrid"],
+["Penguinelli Cactussini","penguinelli-cactussini","penguinelli-cactussini","common","hybrid"],
+["Burballoni Watermeloni","burballoni-watermeloni","burballoni-watermeloni","common","hybrid"],
+["Tirilikalika Tirilikalako","tirilikalika-tirilikalako","tirilikalika-tirilikalako","common","hybrid"],
+["Skibidi Toilet","skibidi-toilet","skibidi-toilet","common","hybrid"],
+["Strawberry Elephant","strawberry-elephant","strawberry-elephant","common","hybrid"],
+["Meowl","meowl","meowl","common","hybrid"],
+["Dragon Cannelloni","dragon-cannelloni","dragon-cannelloni","common","hybrid"],
+["Ice Dragon","ice-dragon","ice-dragon","common","hybrid"],
+["Cerberus","cerberus","cerberus","common","hybrid"],
+["Capitano Moby","capitano-moby","capitano-moby","common","hybrid"],
+["Guest 666","guest-666","guest-666","common","hybrid"],
+["Pop Pop Pop Sahur","pop-pop-sahur","pop-pop-sahur","common","hybrid"],
+["Noo La Polizia","noo-la-polizia","noo-la-polizia","common","hybrid"],
+["Belula Beluga","belula-beluga","belula-beluga","common","hybrid"],
+["Los Tungtungtungcitos Dicen Sahur","los-tungtungtungcitos","los-tungtungtungcitos","common","hybrid"],
+["Orcalita Orcala","orcalita-orcala","orcalita-orcala","common","hybrid"],
+["Los Gattitos","los-gattitos","los-gattitos","common","hybrid"],
+["Aquanaut","aquanaut","aquanaut","common","hybrid"],
+["Tractoro Dinosauro","tractoro-dinosauro","tractoro-dinosauro","common","hybrid"],
+["Piccione Macchina","piccione-macchina","piccione-macchina","common","hybrid"],
+["Tartaruga Cisterna","tartaruga-cisterna","tartaruga-cisterna","common","hybrid"],
+["67","67","67","common","hybrid"],
+["Avocadorilla","avocadorilla","avocadorilla","common","hybrid"],
+["Lerulerulerule","lerulerulerule","lerulerulerule","common","hybrid"],
+["Avocadini Antilopini","avocadini-antilopini","avocadini-antilopini","common","hybrid"],
+["Avocadini Guffo","avocadini-guffo","avocadini-guffo","common","hybrid"],
+["Noobini Pizzanini","noobini-pizzanini","noobini-pizzanini","common","hybrid"],
+["Sammyni Spyderini","sammyni-spyderini","sammyni-spyderini","common","hybrid"],
+["Alessio","alessio","alessio","common","hybrid"],
+["Antonio","antonio","antonio","common","hybrid"]
+];
+
+// ============================================================
+// AUDIO ENGINE (shared by soundboard + quiz)
+// ============================================================
+const audioCache={};let loopMode=false,currentAudio=null,currentCard=null;
+const synth=window.speechSynthesis;let itVoice=null;
+function initTTS(){const l=()=>{const v=synth.getVoices();itVoice=v.find(x=>x.lang.startsWith("it"))||v[0]};synth.onvoiceschanged=l;l()}
+initTTS();
+function tryURL(slug,pats,i,ok,fail){if(i>=pats.length){fail();return}const a=new Audio();a.preload="auto";let done=false;const fin=fn=>{if(done)return;done=true;a.removeEventListener("canplaythrough",onOk);a.removeEventListener("error",onErr);fn()};const onOk=()=>fin(()=>ok(a));const onErr=()=>fin(()=>tryURL(slug,pats,i+1,ok,fail));a.addEventListener("canplaythrough",onOk);a.addEventListener("error",onErr);a.src=pats[i].replace("{slug}",slug);a.load();setTimeout(()=>{if(!done)onErr()},2500)}
+
+function playSoundFor(item,onEnd){
+    const cb=onEnd||function(){};
+    if(audioCache[item[2]]){const a=audioCache[item[2]];a.currentTime=0;a.playbackRate=1;a.onended=cb;currentAudio=a;a.play().catch(()=>doTTS(item[0],1,cb));return}
+    const slugs=[item[2]];if(item[1]!==item[2])slugs.push(item[1]);let si=0;
+    function tryCustom(fallback){const url=CUSTOM_AUDIO[item[2]];if(!url)return fallback();const a=new Audio();a.preload="auto";let done=false;const onOk=()=>{if(done)return;done=true;audioCache[item[2]]=a;a.playbackRate=1;a.onended=cb;currentAudio=a;a.play().catch(()=>fallback())};const onErr=()=>{if(done)return;done=true;fallback()};a.addEventListener("canplaythrough",onOk);a.addEventListener("error",onErr);a.src=url;a.load();setTimeout(()=>{if(!done){done=true;fallback()}},3000)}
+    function tryNext(){if(si>=slugs.length){doTTS(item[0],1,cb);return}tryURL(slugs[si],SOUND_PATTERNS,0,a=>{audioCache[item[2]]=a;a.playbackRate=1;a.onended=cb;currentAudio=a;a.play().catch(()=>doTTS(item[0],1,cb))},()=>{si++;tryNext()})}
+    tryCustom(()=>tryNext());
+}
+
+function playSound(item,card){stopAll();const spd=parseFloat(document.getElementById("speedSel").value);currentCard=card;card.classList.add("speaking");showNP(item);const onEnd=()=>{if(loopMode){playSound(item,card);return}card.classList.remove("speaking");hideNP();currentCard=null;currentAudio=null};if(audioCache[item[2]]){const a=audioCache[item[2]];a.currentTime=0;a.playbackRate=spd;a.onended=onEnd;currentAudio=a;a.play().catch(()=>doTTS(item[0],spd,onEnd));return}const slugs=[item[2]];if(item[1]!==item[2])slugs.push(item[1]);let si=0;function tryCustom(cb){const url=CUSTOM_AUDIO[item[2]];if(!url)return cb();const a=new Audio();a.preload="auto";let done=false;const onOk=()=>{if(done)return;done=true;audioCache[item[2]]=a;a.playbackRate=spd;a.onended=onEnd;currentAudio=a;a.play().catch(()=>cb())};const onErr=()=>{if(done)return;done=true;cb()};a.addEventListener("canplaythrough",onOk);a.addEventListener("error",onErr);a.src=url;a.load();setTimeout(()=>{if(!done){done=true;cb()}},3000)}function tryNext(){if(si>=slugs.length){doTTS(item[0],spd,onEnd);return}tryURL(slugs[si],SOUND_PATTERNS,0,a=>{audioCache[item[2]]=a;a.playbackRate=spd;a.onended=onEnd;currentAudio=a;a.play().catch(()=>doTTS(item[0],spd,onEnd))},()=>{si++;tryNext()})}tryCustom(()=>tryNext());setTimeout(()=>{if(card.classList.contains("speaking")&&!currentAudio)onEnd()},8000)}
+
+function doTTS(txt,r,cb){synth.cancel();const u=new SpeechSynthesisUtterance(txt+"!");if(itVoice)u.voice=itVoice;u.rate=r;u.pitch=1.05;u.volume=1;u.onend=cb;u.onerror=cb;synth.speak(u)}
+function stopAll(){if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null}synth.cancel();if(currentCard){currentCard.classList.remove("speaking");currentCard=null}hideNP()}
+function toggleLoop(){loopMode=!loopMode;document.getElementById("loopBtn").classList.toggle("active",loopMode)}
+function playRandom(){const v=[...document.querySelectorAll(".card:not(.hidden)")];if(!v.length)return;const c=v[Math.floor(Math.random()*v.length)];c.click();c.scrollIntoView({behavior:"smooth",block:"center"})}
+function showNP(item){document.getElementById("npImg").src=IMG+item[1]+".webp";document.getElementById("npName").textContent=item[0];document.getElementById("nowPlaying").classList.add("visible")}
+function hideNP(){document.getElementById("nowPlaying").classList.remove("visible")}
+
+// ============================================================
+// BUILD SOUNDBOARD GRID
+// ============================================================
+const grid=document.getElementById("grid");
+const sorted=[...D].sort((a,b)=>(RO[a[3]]||9)-(RO[b[3]]||9)||a[0].localeCompare(b[0]));
+document.getElementById("totalCount").textContent=sorted.length;
+document.getElementById("total2").textContent=sorted.length;
+document.getElementById("shownCount").textContent=sorted.length;
+sorted.forEach((item,i)=>{const[name,imgSlug,charSlug,rarity,species]=item;const card=document.createElement("div");card.className="card";card.dataset.species=species;card.dataset.rarity=rarity;card.dataset.name=name.toLowerCase();card.style.setProperty("--glow",RG[rarity]||"#666");card.innerHTML=`<div class="card-img"><div class="loader"></div><img src="${IMG}${imgSlug}.webp" alt="${name}" loading="lazy" onload="this.previousElementSibling.remove()" onerror="this.previousElementSibling.remove();this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji">${SE[species]||"🧠"}</span><span class="badge badge-${rarity}">${RL[rarity]||rarity}</span><div class="spk">🔊</div></div><div class="card-body"><div class="card-name" title="${name}">${name}</div><div class="card-species">${SE[species]||""} ${species}</div><div class="wave"><i></i><i></i><i></i><i></i><i></i></div></div>`;card.addEventListener("click",()=>playSound(item,card));card.style.opacity="0";card.style.transform="translateY(20px)";card.style.transition="opacity .4s ease,transform .4s ease";setTimeout(()=>{card.style.opacity="1";card.style.transform="none"},Math.min(i*20,1200));grid.appendChild(card)});
+
+// FILTERS
+const allSp=[...new Set(D.map(d=>d[4]))].sort(),allRa=[...new Set(D.map(d=>d[3]))].sort((a,b)=>(RO[a]||9)-(RO[b]||9));
+function buildFilters(){const fEl=document.getElementById("filters");const ca=fEl.querySelector(".filter-btn.active");const cf=ca?ca.dataset.filter:"all";let fH=`<button class="filter-btn${cf==="all"?" active":""}" data-filter="all">${t("all")}</button>`;allSp.forEach(s=>{const f="s:"+s;fH+=`<button class="filter-btn${cf===f?" active":""}" data-filter="${f}">${t(s)}</button>`});allRa.forEach(r=>{const f="r:"+r;fH+=`<button class="filter-btn${cf===f?" active":""}" data-filter="${f}">${RL[r]||r}</button>`});fEl.innerHTML=fH}
+document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest(".filter-btn");if(!b)return;document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");applyF()});
+document.getElementById("search").addEventListener("input",applyF);
+function applyF(){const ab=document.querySelector(".filter-btn.active");const f=ab?ab.dataset.filter:"all";const q=document.getElementById("search").value.toLowerCase().trim();let c=0;document.querySelectorAll(".card").forEach(card=>{let show=true;if(f!=="all"){const[tp,v]=f.split(":");if(tp==="s")show=card.dataset.species===v;else if(tp==="r")show=card.dataset.rarity===v}if(q&&show)show=card.dataset.name.includes(q);card.classList.toggle("hidden",!show);if(show)c++});document.getElementById("shownCount").textContent=c}
+
+// ============================================================
+// 🧠 QUIZ ENGINE
+// ============================================================
+let quizMode="sound"; // "sound" or "image"
+const QUIZ_LIVES=3, QUIZ_TIME=10000; // 10s per question
+let qState={score:0,streak:0,bestStreak:0,round:0,correct:0,lives:3,answered:false,timerInterval:null,timeLeft:0};
+
+function getHiScore(mode){try{return parseInt(localStorage.getItem("brainrot-hiscore-"+mode))||0}catch(e){return 0}}
+function setHiScore(mode,val){try{localStorage.setItem("brainrot-hiscore-"+mode,val)}catch(e){}}
+
+function openQuiz(){stopAll();document.getElementById("quizOverlay").classList.add("open");document.body.style.overflow="hidden";updateQuizScores();showQuizStart()}
+function closeQuiz(){stopAll();document.getElementById("quizOverlay").classList.remove("open");document.body.style.overflow="";clearInterval(qState.timerInterval)}
+function setQuizMode(m){quizMode=m;document.querySelectorAll(".quiz-mode-btn").forEach(b=>b.classList.toggle("active",b.dataset.qmode===m));updateQuizScores();showQuizStart()}
+
+function updateQuizScores(){
+    document.getElementById("qScore").textContent=qState.score;
+    document.getElementById("qStreak").textContent=qState.streak;
+    document.getElementById("qBest").textContent=getHiScore(quizMode);
+    document.getElementById("qLives").innerHTML="❤️".repeat(qState.lives)+"🖤".repeat(QUIZ_LIVES-qState.lives);
+    document.getElementById("qRound").textContent=qState.round;
+}
+
+function showQuizStart(){
+    qState={score:0,streak:0,bestStreak:0,round:0,correct:0,lives:QUIZ_LIVES,answered:false,timerInterval:null,timeLeft:0};
+    updateQuizScores();
+    const g=document.getElementById("quizGame");
+    g.innerHTML=`<div class="quiz-start">
+        <h2 style="font-family:'Lilita One',cursive;font-size:1.5rem;color:var(--neon-yellow)">${t("quizStartTitle")}</h2>
+        <p class="quiz-start-desc">${quizMode==="sound"?t("quizSoundDesc"):t("quizImageDesc")}</p>
+        <button class="quiz-start-btn" onclick="startQuiz()">${t("quizStart")}</button>
+    </div>`;
+}
+
+function startQuiz(){qState={score:0,streak:0,bestStreak:0,round:0,correct:0,lives:QUIZ_LIVES,answered:false,timerInterval:null,timeLeft:0};updateQuizScores();nextQuestion()}
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function pickQuestion(){
+    const answer=D[Math.floor(Math.random()*D.length)];
+    let others=D.filter(x=>x[2]!==answer[2]);
+    others=shuffle(others).slice(0,3);
+    const options=shuffle([answer,...others]);
+    return{answer,options};
+}
+
+function nextQuestion(){
+    stopAll();clearInterval(qState.timerInterval);
+    if(qState.lives<=0){showGameOver();return}
+    qState.round++;qState.answered=false;qState.timeLeft=QUIZ_TIME;
+    updateQuizScores();
+    const q=pickQuestion();
+    const g=document.getElementById("quizGame");
+
+    if(quizMode==="sound"){
+        // SOUND MODE: play sound, pick the right image
+        g.innerHTML=`
+            <div class="quiz-prompt">
+                <p class="quiz-prompt-text">${t("quizWho")}</p>
+                <button class="quiz-play-btn" onclick="quizPlayAnswer()" id="qPlayBtn">${t("quizListen")}</button>
+            </div>
+            <div class="quiz-timer"><div class="quiz-timer-fill" id="qTimerFill" style="width:100%"></div></div>
+            <div class="quiz-options" id="qOptions"></div>
+            <div class="quiz-feedback" id="qFeedback"></div>`;
+        const optEl=document.getElementById("qOptions");
+        q.options.forEach(opt=>{
+            const el=document.createElement("div");el.className="quiz-opt";
+            el.innerHTML=`<img class="quiz-opt-img" src="${IMG}${opt[1]}.webp" alt="?" onerror="this.style.display='none'"><div class="quiz-opt-name" style="display:none">${opt[0]}</div>`;
+            el.onclick=()=>submitAnswer(opt,q.answer,el);
+            optEl.appendChild(el);
+        });
+    } else {
+        // IMAGE MODE: show image, pick the right name
+        g.innerHTML=`
+            <div class="quiz-prompt">
+                <p class="quiz-prompt-text">${t("quizWhichName")}</p>
+                <img class="quiz-question-img" src="${IMG}${q.answer[1]}.webp" alt="?" style="width:160px;height:160px;border-radius:16px;object-fit:cover" onerror="this.alt='🧠'">
+            </div>
+            <div class="quiz-timer"><div class="quiz-timer-fill" id="qTimerFill" style="width:100%"></div></div>
+            <div class="quiz-options quiz-options-names" id="qOptions"></div>
+            <div class="quiz-feedback" id="qFeedback"></div>`;
+        const optEl=document.getElementById("qOptions");
+        q.options.forEach(opt=>{
+            const el=document.createElement("div");el.className="quiz-opt quiz-opt-namecard";
+            el.innerHTML=`<span class="quiz-opt-label">${opt[0]}</span><div class="quiz-opt-name" style="display:none">${opt[0]}</div>`;
+            el.onclick=()=>submitAnswer(opt,q.answer,el);
+            optEl.appendChild(el);
+        });
+    }
+
+    // Store answer for playback
+    window._quizAnswer=q.answer;
+
+    // Auto-play sound in sound mode
+    if(quizMode==="sound") setTimeout(()=>quizPlayAnswer(),300);
+
+    // Start timer
+    startTimer();
+}
+
+function quizPlayAnswer(){stopAll();playSoundFor(window._quizAnswer)}
+function quizPlayOpt(btn){stopAll();try{const d=JSON.parse(btn.dataset.slug);playSoundFor(d)}catch(e){}}
+
+function startTimer(){
+    clearInterval(qState.timerInterval);
+    const start=Date.now();
+    const fill=document.getElementById("qTimerFill");
+    qState.timerInterval=setInterval(()=>{
+        if(qState.answered){clearInterval(qState.timerInterval);return}
+        const elapsed=Date.now()-start;
+        const pct=Math.max(0,1-elapsed/QUIZ_TIME)*100;
+        if(fill) fill.style.width=pct+"%";
+        if(elapsed>=QUIZ_TIME){clearInterval(qState.timerInterval);timeOut()}
+    },50);
+}
+
+function timeOut(){
+    if(qState.answered) return;
+    qState.answered=true;stopAll();clearInterval(qState.timerInterval);
+    qState.streak=0;qState.lives--;
+    document.querySelectorAll(".quiz-opt").forEach(el=>el.classList.add("disabled"));
+    // Highlight correct
+    const opts=document.querySelectorAll(".quiz-opt");
+    opts.forEach(el=>{const nm=el.querySelector(".quiz-opt-name");if(nm&&nm.textContent===window._quizAnswer[0]){el.classList.add("correct");nm.style.display=""}});
+    updateQuizScores();
+    const lEl=document.getElementById("qLives");lEl.classList.remove("lose-life");void lEl.offsetWidth;lEl.classList.add("lose-life");
+    showFeedback("timeout");
+}
+
+function submitAnswer(chosen,correct,el){
+    if(qState.answered) return;
+    qState.answered=true;stopAll();clearInterval(qState.timerInterval);
+    const isCorrect=chosen[2]===correct[2];
+    document.querySelectorAll(".quiz-opt").forEach(o=>o.classList.add("disabled"));
+
+    if(isCorrect){
+        el.classList.add("correct");
+        el.querySelector(".quiz-opt-name").style.display="";
+        const timeBonus=Math.floor((qState.timeLeft>0?1:0)*50);
+        const streakBonus=qState.streak*10;
+        qState.score+=100+timeBonus+streakBonus;
+        qState.streak++;qState.correct++;
+        if(qState.streak>qState.bestStreak) qState.bestStreak=qState.streak;
+        showFeedback("correct");
+    } else {
+        el.classList.add("wrong");
+        // Highlight correct one
+        document.querySelectorAll(".quiz-opt").forEach(o=>{const nm=o.querySelector(".quiz-opt-name");if(nm&&nm.textContent===correct[0]){o.classList.add("correct");nm.style.display=""}});
+        qState.streak=0;qState.lives--;
+        updateQuizScores();
+        const lEl=document.getElementById("qLives");lEl.classList.remove("lose-life");void lEl.offsetWidth;lEl.classList.add("lose-life");
+        showFeedback("wrong",correct[0]);
+    }
+    updateQuizScores();
+}
+
+function showFeedback(type,correctName){
+    const fb=document.getElementById("qFeedback");
+    let html="";
+    if(type==="correct") html=`<div class="quiz-fb-text quiz-fb-correct">${t("quizCorrect")} +${100+qState.streak*10}</div>`;
+    else if(type==="wrong") html=`<div class="quiz-fb-text quiz-fb-wrong">${t("quizWrong")}</div><div style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:4px">${t("quizCorrectWas")} <b style="color:#fff">${correctName}</b></div>`;
+    else html=`<div class="quiz-fb-text quiz-fb-timeout">${t("quizTimeout")}</div><div style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:4px">${t("quizCorrectWas")} <b style="color:#fff">${window._quizAnswer[0]}</b></div>`;
+    html+=`<button class="quiz-next-btn" onclick="nextQuestion()">${qState.lives<=0?t("quizOver"):t("quizNext")}</button>`;
+    fb.innerHTML=html;
+}
+
+function showGameOver(){
+    stopAll();
+    const hi=getHiScore(quizMode);
+    const isNew=qState.score>hi;
+    if(isNew) setHiScore(quizMode,qState.score);
+    updateQuizScores();
+    const acc=qState.round>0?Math.round(qState.correct/qState.round*100):0;
+    const g=document.getElementById("quizGame");
+    g.innerHTML=`<div class="quiz-gameover">
+        <div class="quiz-go-title">${t("quizOver")}</div>
+        <div class="quiz-go-label">${t("quizFinalScore")}</div>
+        <div class="quiz-go-score">${qState.score}</div>
+        ${isNew?`<div class="quiz-go-new">${t("quizNewRecord")}</div>`:""}
+        <div class="quiz-go-stats">
+            <div class="quiz-go-stat"><div class="gos-num">${qState.round}</div><div class="gos-label">${t("quizRounds")}</div></div>
+            <div class="quiz-go-stat"><div class="gos-num">${qState.correct}</div><div class="gos-label">${t("quizAccuracy")} (${acc}%)</div></div>
+            <div class="quiz-go-stat"><div class="gos-num">${qState.bestStreak}</div><div class="gos-label">${t("quizBestStreak")}</div></div>
+            <div class="quiz-go-stat"><div class="gos-num">${isNew?qState.score:hi}</div><div class="gos-label">${t("hiscore")}</div></div>
+        </div>
+        <button class="quiz-start-btn" onclick="startQuiz()" style="margin-top:16px">${t("quizReplay")}</button>
+    </div>`;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+(function(){let s=null;try{s=localStorage.getItem("brainrot-lang")}catch(e){}setLang(s||detectLang())})();
+
+// FLOATING EMOJIS
+const fE=["🇮🇹","🦈","🐊","🦋","🗿","☕","🍕","🧠","💀","🤌","🐘","🦢","🐵","🦏","🐙","🐬"];
+function spF(){const e=document.createElement("div");e.className="fl";e.textContent=fE[Math.floor(Math.random()*fE.length)];e.style.left=Math.random()*100+"vw";e.style.animationDuration=(16+Math.random()*20)+"s";document.body.appendChild(e);e.addEventListener("animationend",()=>e.remove())}
+setInterval(spF,3500);for(let i=0;i<4;i++)setTimeout(spF,i*600);
+</script>
+</body>
+</html>
